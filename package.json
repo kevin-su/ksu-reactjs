@@ -15,7 +15,9 @@
     "--comment--serve": "-----",
     "serve": "npm run webpack && webpack-dev-server --content-base build/ --colors",
     "node-serve": "cross-env NODE_ENV=node nodemon src/js/server.js --exec babel-node --presets es2015,stage-2",
-    "nodeserve": "npm run webpack && cross-env NODE_ENV=node babel-node src/js/server.js  --presets es2015,stage-2",
+    "node-serve": "npm run webpack && cross-env NODE_ENV=node babel-node src/js/server.js  --presets es2015,stage-2",
+    "prestart":"npm install",
+    "start": "npm run node-serve",
     "--comment--test": "-----",
     "unit-test": "karma start karma.config.js --no-auto-watch --single-run",
     "unit-test-watch": "nodemon -w ./src/js -x \"npm run unit-test\""

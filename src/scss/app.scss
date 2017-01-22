@@ -1,0 +1,9 @@
+@import "base";
+@import "mixins";
+.app {
+    padding: 16px;
+    margin: 0 auto;
+    @include media-breakpoint-up(lg) {
+        width: 940px;
+    }
+}

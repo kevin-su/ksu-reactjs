@@ -1,0 +1,56 @@
+{
+  "presets": [
+    "es2015",
+    "react"
+  ],
+  "plugins": [
+    "transform-react-jsx",
+    [
+      "module-alias",
+      [
+        {
+          "src": "./src/js/utils",
+          "expose": "utils"
+        },
+        {
+          "src": "./src/js/components",
+          "expose": "components"
+        },
+        {
+          "src": "./src/js/actions",
+          "expose": "actions"
+        },
+        {
+          "src": "./src/js/store",
+          "expose": "store"
+        },
+        {
+          "src": "./src/js/services",
+          "expose": "services"
+        },
+        {
+          "src": "./src/js/reducers",
+          "expose": "reducers"
+        },
+        {
+          "src": "./src/scss",
+          "expose": "scss"
+        }
+      ]
+    ]
+  ],
+  "env": {
+    "node": {
+      "plugins": [
+        [
+          "babel-plugin-transform-require-ignore",
+          {
+            "extensions": [
+              ".scss"
+            ]
+          }
+        ]
+      ]
+    }
+  }
+}

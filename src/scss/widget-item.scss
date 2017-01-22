@@ -1,0 +1,18 @@
+@import "mixins";
+.widget-item {
+    overflow: hidden;
+    figure {
+        margin: 0 auto;
+        width: 300px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        @include media-breakpoint-up(md) {
+            width: 100%;
+        }
+    }
+    .widget-item-description {
+        padding: 16px;
+    }
+}

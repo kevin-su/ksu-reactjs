@@ -1,0 +1,74 @@
+@import "variables";
+@import "mixins";
+.widget {
+    border-radius: 8px 8px 0 0;
+    box-shadow: 5px 5px 8px 0 rgba(0, 0, 0, 0.25);
+    .widget-header {
+        overflow: hidden;
+        position: relative;
+        padding: 16px;
+        background: linear-gradient(to right, #eae8d1 0%, $secondaryColour 100%);
+        border-radius: 8px 8px 0 0;
+        .btn {
+            float: right;
+        }
+        .btn-toggle {
+            width: 16px;
+            height: 16px;
+            text-indent: -9999px;
+        }
+    }
+    .widget-header-title {
+        font-size: 16px;
+        margin: 0;
+        padding-left: 24px;
+        padding-right: 24px;
+        position: relative;
+        .icon {
+            position: absolute;
+            left: 0;
+            top: 10%;
+        }
+    }
+    .icon {
+        width: 16px;
+    }
+    .widget-accordion {
+        // transition: all 0.5s ease;
+        // background: #ccc;
+        overflow: hidden;
+    }
+    .widget-block {
+        background: #fff;
+    }
+    &.expand {
+        .btn-toggle {
+            @include triangle('down', 8px, $primaryColour) {
+                top: 4px;
+            }
+            position: absolute;
+            right: 0;
+            top: 10%;
+        }
+    }
+    &.collapse {
+        .btn-reload {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 0;
+            top: 10%;
+        }
+        .btn-toggle {
+            @include triangle('left', 8px, $primaryColour, 0);
+            position: absolute;
+            right: 0;
+            top: 10%;
+        }
+    }
+    .btn {
+        border: 0;
+        background: none;
+        padding: 0;
+    }
+}

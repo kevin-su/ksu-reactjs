@@ -1,0 +1,40 @@
+@import "variables";
+@import "mixins";
+//
+.widget-item-navigator {
+    padding: 16px;
+    overflow: hidden;
+    border-top: 1px solid $secondaryColour;
+    border-bottom: 1px solid $secondaryColour;
+    .btn {
+        color: $primaryColour;
+        width: 100%;
+        margin-bottom: 24px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        @include media-breakpoint-up(md) {
+            margin-bottom: 0;
+            width: auto;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .btn-prev {
+        float: left;
+        padding-left: 24px;
+        @include triangle('left', 10px, $primaryColour, 0) {
+            left: 0;
+            right: auto;
+        }
+    }
+    .btn-next {
+        float: right;
+        padding-right: 24px;
+        @include triangle('right', 10px, $primaryColour, 0) {
+            left: auto;
+            right: 0;
+        }
+    }
+}

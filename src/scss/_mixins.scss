@@ -1,0 +1,100 @@
+// $container-max-widths: (
+//   sm: 576px,
+//   md: 720px,
+//   lg: 940px,
+//   xl: 1140px
+// ) !default;
+//
+//
+
+/*--------------------------------------------------------------------------------------
+   =breakpoints
+-------------------------------------------------------------------------------------- */
+
+@mixin media-breakpoint-up($breakpointName) {
+    @if $breakpointName=='xs' {
+        // Small screen / phone
+        @media (min-width: 0) {
+            @content;
+        }
+    }
+    @if $breakpointName=='sm' {
+        // Medium screen / tablet
+        @media (min-width: 544px) {
+            @content;
+        }
+    }
+    @if $breakpointName=='md' {
+        //Large screen / desktop
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @if $breakpointName=='lg' {
+        //Extra large screen / wide desktop
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------------------------------
+   =shapes
+-------------------------------------------------------------------------------------- */
+
+@mixin triangle($direction, $size, $colour, $center:50%, $beforeAfter:'after') {
+    position: relative;
+    &:#{$beforeAfter} {
+        width: 0;
+        height: 0;
+        z-index: 1;
+        content: '';
+        position: absolute;
+        @if $direction=="right" {
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: 0;
+            top: $center;
+            right: -1*($size*1.5);
+            border-top: $size solid transparent;
+            border-left: $size*1.5 solid $colour;
+            border-bottom: $size solid transparent;
+        }
+        @else if $direction=="down" {
+            top: auto;
+            right: 0;
+            bottom: auto;
+            left: 0;
+            bottom: -1*($size*1.5);
+            margin: 0 auto;
+            border-left: $size solid transparent;
+            border-right: $size solid transparent;
+            border-top: $size*1.5 solid $colour;
+        }
+        @else if $direction=="up" {
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+            top: -1*($size*1.5);
+            left: $center;
+            border-left: $size solid transparent;
+            border-right: $size solid transparent;
+            border-bottom: $size*1.5 solid $colour;
+        }
+        @else if $direction=="left" {
+            top: auto;
+            right: 0;
+            bottom: auto;
+            top: $center;
+            left: auto;
+            border-top: $size solid transparent;
+            border-bottom: $size solid transparent;
+            border-right: $size*1.5 solid $colour;
+        }
+        //
+        @content;
+    }
+}
